@@ -55,7 +55,7 @@ background: #222;
 color: white;
 font-size: 1.1rem;
 text-align: center;
-letter-spacing: 2px;
+letter-spacing: 5px;
 margin-bottom: 15px;
 }
 .password-box button {
@@ -210,8 +210,9 @@ align-items: center;
 <div class="password-box">
 <h2>❤️ Mas Sayang</h2>
 <p>Masukkan tanggal jadian kita</p>
-<input type="text" id="pass" placeholder="01022025" autocomplete="off">
-<button type="button" id="btn-buka">Buka ❤️</button>
+<!-- INPUT TYPE PASSWORD (HIDDEN) -->
+<input type="password" id="pass" placeholder="••••••••" autocomplete="off">
+<button id="btn-buka">Buka ❤️</button>
 </div>
 </div>
 
@@ -300,50 +301,57 @@ align-items: center;
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-<span class="lightbox-close">&times;</span>
+<span class="lightbox-close">×</span>
 <img id="lightbox-img" src="" alt="">
 </div>
 
 <!-- JavaScript -->
 <script>
-// === FUNGSI UTAMA ===
+// Ambil elemen
+var passInput = document.getElementById('pass');
+var btnBuka = document.getElementById('btn-buka');
+var lockScreen = document.getElementById('lock');
+var bgm = document.getElementById('bgm');
 
-// 1. Unlock Password
-document.getElementById('btn-buka').addEventListener('click', function() {
-    var pass = document.getElementById('pass').value;
-    alert('Password yang kamu masukkan: ' + pass); // DEBUG
+// Klik tombol Buka
+btnBuka.onclick = function() {
+    var nilai = passInput.value;
     
-    if(pass === '01022025') {
-        // Benar
-        document.getElementById('lock').classList.add('hidden');
-        playMusic();
+    if(nilai === '01022025') {
+        // Password benar
+        lockScreen.classList.add('hidden');
+        
+        // Mainkan musik
+        bgm.volume = 0.6;
+        bgm.play().then(function() {
+            console.log('Musik main!');
+        }).catch(function(err) {
+            console.log('Gagal main musik');
+        });
     } else {
-        // Salah
-        alert('Password salah! Coba lagi dengan format: 01022025');
+        // Password salah
+        alert('Password salah! Coba lagi :(');
+        passInput.value = '';
     }
-});
+};
 
-// 2. Play Music
-function playMusic() {
-    var audio = document.getElementById('bgm');
-    audio.volume = 0.6;
-    audio.play().then(function() {
-        console.log('Musik berhasil diputar!');
-    }).catch(function(e) {
-        console.log('Musik gagal: ' + e);
-    });
-}
+//也可以 pakai Enter
+passInput.onkeypress = function(e) {
+    if(e.key === 'Enter') {
+        btnBuka.click();
+    }
+};
 
-// 3. Counter Hari
+// Counter Hari
 var days = Math.floor((new Date() - new Date('2025-02-01')) / (1000*60*60*24));
 document.getElementById('days').innerHTML = days + ' Hari';
 
-// 4. Final
+// Final function
 function chooseMe() {
     document.getElementById('result').innerHTML = '❤️ AKU PULA! ❤️<br><br>Sekarang dan selamanya.';
 }
 
-// 5. Lightbox
+// Lightbox
 function openLightbox(el) {
     var img = el.querySelector('img');
     document.getElementById('lightbox-img').src = img.src;
@@ -353,7 +361,7 @@ function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
 }
 
-// 6. Animation Scroll
+// Animation Scroll
 var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
         if(entry.isIntersecting) {
@@ -364,8 +372,6 @@ var observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.fade').forEach(function(el) {
     observer.observe(el);
 });
-
-alert('Website loaded!'); // DEBUG
 </script>
 </body>
 </html>
