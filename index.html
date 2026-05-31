@@ -11,7 +11,7 @@ body { font-family: 'Poppins', sans-serif; background: #0f0f12; color: white; ov
 section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px 20px; text-align: center; position: relative; }
 
 /* --- Password Screen --- */
-.password-screen { position: fixed; inset: 0; background: url('images/cover.jpg') center/cover; z-index: 9999; display: flex; justify-content: center; align-items: center; }
+.password-screen { position: fixed; inset: 0; background: url('images/cover.jpeg') center/cover; z-index: 9999; display: flex; justify-content: center; align-items: center; }
 .password-screen::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.85); }
 .password-box { position: relative; z-index: 1; background: #1a1a1a; padding: 40px; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; border: 1px solid #ff4f87; }
 .password-box h2 { margin-bottom: 10px; color: #ff91b5; font-family: 'Playfair Display', serif; font-size: 1.8rem;}
@@ -20,7 +20,7 @@ section { min-height: 100vh; display: flex; flex-direction: column; justify-cont
 .password-box button { margin-top: 15px; width: 100%; padding: 15px; border: none; border-radius: 10px; background: #ff4f87; color: white; font-size: 1.1rem; font-weight: 600; cursor: pointer; }
 
 /* --- Hero Section --- */
-.hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('images/cover.jpg'); background-size: cover; background-position: center; }
+.hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('images/cover.jpeg'); background-size: cover; background-position: center; }
 .hero h1 { font-size: 3.5rem; font-family: 'Playfair Display', serif; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
 .hero p { max-width: 600px; font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; }
 .btn { padding: 15px 40px; border: none; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 600; background: linear-gradient(45deg, #ff4f87, #ff9bbd); color: white; text-decoration: none; display: inline-block; transition: 0.3s; }
@@ -139,15 +139,14 @@ section { min-height: 100vh; display: flex; flex-direction: column; justify-cont
 <section class="gallery fade">
 <h2>📸 Gallery</h2>
 <div class="gallery-grid">
-<!-- Menggunakan nama file: gallery1.jpg, gallery2.jpg, dst -->
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery1.jpg" alt="Foto 1"></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery2.jpg" alt="Foto 2"></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery3.jpg" alt="Foto 3"></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery4.jpg" alt="Foto 4"></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery5.jpg" alt="Foto 5"></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery6.jpg" alt="Foto 6"></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery7.jpg" alt="Foto 7"></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery8.jpg" alt="Foto 8"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery1.jpeg" alt="Foto 1"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery2.jpeg" alt="Foto 2"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery3.jpeg" alt="Foto 3"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery4.jpeg" alt="Foto 4"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery5.jpeg" alt="Foto 5"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery6.jpeg" alt="Foto 6"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery7.jpeg" alt="Foto 7"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery8.jpeg" alt="Foto 8"></div>
 </div>
 </section>
 
@@ -155,10 +154,9 @@ section { min-height: 100vh; display: flex; flex-direction: column; justify-cont
 <section class="photobooth fade">
 <h2>🎞️ Photo Booth</h2>
 <div class="polaroids">
-<!-- Menggunakan nama file: photobooth1.jpg, photobooth2.jpg, dst -->
-<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth1.jpg" alt="Photobooth 1"></div>
-<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth2.jpg" alt="Photobooth 2"></div>
-<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth3.jpg" alt="Photobooth 3"></div>
+<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth1.jpeg" alt="Photobooth 1"></div>
+<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth2.jpeg" alt="Photobooth 2"></div>
+<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth3.jpeg" alt="Photobooth 3"></div>
 </div>
 </section>
 
