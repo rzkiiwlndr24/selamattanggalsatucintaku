@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Perjalanan Cinta Kita - Wulan & Ardi">
+<meta name="author" content="Wulan">
 
 <title>Perjalanan Pulang | Wulan & Ardi ❤️</title>
 
@@ -18,10 +20,11 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:'Poppins',sans-serif;
+font-family:'Poppins', sans-serif;
 background:#0f0f12;
 color:white;
 overflow-x:hidden;
+line-height:1.6;
 }
 
 section{
@@ -30,56 +33,82 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:40px;
+padding:40px 20px;
 text-align:center;
+position:relative;
 }
 
+/* HERO SECTION */
 .hero{
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
+background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)),
 url("images/cover.jpg");
 background-size:cover;
 background-position:center;
+position:relative;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.3);
+}
+
+.hero h1, .hero p, .hero .btn{
+position:relative;
+z-index:1;
 }
 
 .hero h1{
 font-size:4rem;
-font-family:'Playfair Display',serif;
+font-family:'Playfair Display', serif;
 margin-bottom:15px;
+text-shadow:0 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero p{
 max-width:700px;
-line-height:1.8;
-font-size:1.1rem;
+font-size:1.2rem;
+margin-bottom:30px;
 }
 
 .btn{
-margin-top:30px;
-padding:14px 28px;
+padding:14px 35px;
 border:none;
-border-radius:999px;
+border-radius:50px;
 cursor:pointer;
 font-size:1rem;
+font-weight:600;
 background:#ff4f87;
 color:white;
+transition:transform 0.3s, box-shadow 0.3s;
+text-decoration:none;
+display:inline-block;
 }
 
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px rgba(255, 79, 135, 0.4);
+}
+
+/* COUNTER SECTION */
 .counter{
 background:#17171c;
 }
 
 .counter h2{
 font-size:2rem;
-margin-bottom:20px;
+margin-bottom:10px;
 }
 
 .days{
-font-size:4rem;
+font-size:5rem;
 font-weight:700;
 color:#ff7ca8;
+line-height:1.2;
 }
 
+/* STORY SECTION */
 .story{
 background:#111;
 }
@@ -90,24 +119,40 @@ margin:20px auto;
 padding:30px;
 background:#1a1a22;
 border-radius:20px;
+text-align:left;
+transition:transform 0.3s;
+}
+
+.story-card:hover{
+transform:translateY(-5px);
 }
 
 .story-card h3{
 margin-bottom:15px;
 color:#ff91b5;
+font-family:'Playfair Display', serif;
 }
 
+.story-card p{
+color:#ddd;
+}
+
+/* GALLERY SECTION */
 .gallery{
 background:#121218;
 }
 
+.gallery h2{
+margin-bottom:20px;
+font-size:2rem;
+}
+
 .gallery-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
 width:100%;
 max-width:1200px;
-margin-top:40px;
 }
 
 .gallery-grid img{
@@ -121,8 +166,10 @@ cursor:pointer;
 
 .gallery-grid img:hover{
 transform:scale(1.03);
+opacity:0.9;
 }
 
+/* PHOTOBOOTH SECTION */
 .photobooth{
 background:#0c0c0f;
 }
@@ -139,47 +186,73 @@ margin-top:40px;
 width:280px;
 background:white;
 padding:12px 12px 55px;
-border-radius:6px;
+border-radius:4px;
 box-shadow:0 10px 25px rgba(0,0,0,.4);
+transform:rotate(-2deg);
+transition:transform 0.3s;
 }
 
+.polaroids img:nth-child(2){
+transform:rotate(2deg);
+}
+.polaroids img:hover{
+transform:rotate(0) scale(1.05);
+z-index:2;
+}
+
+/* LETTER SECTION */
 .letter{
 background:#f7f0e8;
 color:#333;
 }
 
 .letter-box{
-max-width:900px;
+max-width:800px;
 background:white;
 padding:50px;
 border-radius:25px;
 line-height:2;
 font-size:1.1rem;
+text-align:left;
 box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
+.letter-box h2{
+text-align:center;
+margin-bottom:30px;
+color:#ff4f87;
+}
+
+/* FINAL SECTION */
 .final{
 background:linear-gradient(135deg,#ff5f95,#ff9bbd);
+color:#fff;
 }
 
 .final button{
-padding:18px 35px;
+padding:18px 40px;
 border:none;
-border-radius:999px;
-font-size:1.1rem;
+border-radius:50px;
+font-size:1.2rem;
+font-weight:600;
 cursor:pointer;
+background:white;
+color:#ff5f95;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-.hidden{
-display:none;
+.final button:hover{
+background:#fff5f7;
 }
 
 #result{
 margin-top:30px;
-font-size:1.8rem;
+font-size:1.5rem;
 font-weight:600;
+line-height:1.5;
 }
 
+/* PASSWORD SCREEN */
 .password-screen{
 position:fixed;
 inset:0;
@@ -193,272 +266,104 @@ padding:20px;
 }
 
 .password-box{
-background:#111;
-padding:30px;
+background:#1a1a1a;
+padding:40px;
 border-radius:20px;
-width:90%;
+width:100%;
 max-width:400px;
+text-align:center;
+border:1px solid #333;
+}
+
+.password-box h2{
+margin-bottom:10px;
+color:#ff91b5;
 }
 
 .password-box input{
 width:100%;
-padding:12px;
-margin-top:15px;
+padding:14px;
+margin-top:20px;
 border:none;
 border-radius:10px;
+background:#2a2a2a;
+color:white;
+font-size:1.1rem;
+text-align:center;
+letter-spacing:2px;
 }
 
 .password-box button{
-margin-top:15px;
+margin-top:20px;
 width:100%;
-padding:12px;
+padding:14px;
 border:none;
 border-radius:10px;
 background:#ff4f87;
 color:white;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
 }
 
-audio{
-display:none;
-}
-
+/* UTILITIES */
 .fade{
 opacity:0;
 transform:translateY(40px);
-transition:1s;
+transition:1s ease-out;
 }
-
 .fade.show{
 opacity:1;
 transform:none;
 }
 
-@media(max-width:768px){
-
-.hero h1{
-font-size:2.5rem;
-}
-
-.days{
-font-size:2.8rem;
-}
-
-.letter-box{
-padding:25px;
-}
-
+/* RESPONSIVE */
+@media(max-width: 768px){
+.hero h1{ font-size: 2.8rem; }
+.days{ font-size: 3.5rem; }
+.gallery-grid img{ height: 250px; }
+.letter-box{ padding: 30px 20px; }
+.polaroids img{ width: 220px; padding-bottom: 40px; }
 }
 
 </style>
 </head>
 <body>
 
+<!-- Password Screen -->
 <div class="password-screen" id="lock">
-
 <div class="password-box">
 <h2>❤️ Untuk Ardi</h2>
 <p>Masukkan tanggal jadian kita</p>
-
-<input type="password" id="pass" placeholder="01022025">
-
+<input type="password" id="pass" placeholder="Contoh: 01022025">
 <button onclick="unlock()">Masuk</button>
 </div>
-
 </div>
 
-<audio autoplay loop>
+<!-- Background Music -->
+<audio id="bgm" loop>
 <source src="music/our-song.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Section 1: Hero -->
 <section class="hero">
-
 <h1>Perjalanan Pulang</h1>
-
 <p>
-Satu tahun belajar mencintai dengan lebih benar.
+Satu tahun belajar mencintai dengan lebih benar.<br>
 Untuk Ardi, dari Wulan.
 </p>
-
-<a href="#counter">
-<button class="btn">Mulai Perjalanan</button>
-</a>
-
+<a href="#counter" class="btn">Mulai Perjalanan</a>
 </section>
 
+<!-- Section 2: Counter -->
 <section class="counter fade" id="counter">
-
 <h2>Kita Sudah Bersama Selama</h2>
-
 <div class="days" id="days"></div>
-
 <p>dan aku masih memilihmu ❤️</p>
-
 </section>
 
+<!-- Section 3: Story -->
 <section class="story fade">
-
 <div class="story-card">
 <h3>🌱 Awal yang Tidak Pernah Pergi</h3>
-<p>
-Aku tidak pernah menyangka seseorang yang pernah hadir di masa SMP akan menjadi rumah di masa dewasa.
-</p>
-</div>
-
-<div class="story-card">
-<h3>⏳ Perpisahan</h3>
-<p>
-Kita pernah berjalan ke arah yang berbeda. Tapi rupanya semesta belum selesai menuliskan cerita kita.
-</p>
-</div>
-
-<div class="story-card">
-<h3>❤️ 1 Februari 2025</h3>
-<p>
-Hari ketika aku memilihmu. Bukan karena nostalgia, tetapi karena keyakinan.
-</p>
-</div>
-
-</section>
-
-<section class="gallery fade">
-
-<h2>Fragmen Waktu yang Kita Jaga</h2>
-
-<div class="gallery-grid">
-
-<img src="images/gallery1.jpg">
-<img src="images/gallery2.jpg">
-<img src="images/gallery3.jpg">
-<img src="images/gallery4.jpg">
-<img src="images/gallery5.jpg">
-<img src="images/gallery6.jpg">
-<img src="images/gallery7.jpg">
-<img src="images/gallery8.jpg">
-
-</div>
-
-</section>
-
-<section class="photobooth fade">
-
-<h2>📸 Good Memories</h2>
-
-<div class="polaroids">
-
-<img src="images/photobooth1.jpg">
-<img src="images/photobooth2.jpg">
-<img src="images/photobooth3.jpg">
-
-</div>
-
-</section>
-
-<section class="letter fade">
-
-<div class="letter-box">
-
-<h2>💌 Untuk Ardi</h2>
-
-<br>
-
-<p>
-Aku tidak tahu seperti apa detail masa depan kita.
-</p>
-
-<p>
-Tapi aku tahu satu hal.
-</p>
-
-<p>
-Jika aku diberi kesempatan untuk memilih lagi,
-aku tetap akan memilihmu.
-</p>
-
-<p>
-Hari ini.
-Besok.
-Dan selama kita terus bertumbuh bersama.
-</p>
-
-<br>
-
-<p>
-Dengan cinta,
-<br>
-Wulan ❤️
-</p>
-
-</div>
-
-</section>
-
-<section class="final">
-
-<h2>✨ Satu Pertanyaan Terakhir ✨</h2>
-
-<button onclick="chooseMe()">
-Klik Jika Kamu Masih Memilih Aku
-</button>
-
-<div id="result"></div>
-
-</section>
-
-<script>
-
-function unlock(){
-
-const pass=document.getElementById("pass").value;
-
-if(pass==="01022025"){
-document.getElementById("lock").style.display="none";
-}else{
-alert("Tanggalnya salah 😝");
-}
-}
-
-const startDate=new Date("2025-02-01");
-const now=new Date();
-
-const diff=now-startDate;
-const days=Math.floor(diff/(1000*60*60*24));
-
-document.getElementById("days").innerHTML=
-days+" Hari";
-
-function chooseMe(){
-
-document.getElementById("result").innerHTML=
-`
-❤️ Aku memilihmu ❤️
-<br><br>
-Hari ini.
-Besok.
-Dan selama kita terus bertumbuh bersama.
-`;
-}
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-});
-
-document.querySelectorAll(".fade").forEach(el=>{
-
-observer.observe(el);
-
-});
-
-</script>
-
-</body>
-</html>
+<p>Aku tidak pernah menyangka seseorang yang pernah hadir di masa
