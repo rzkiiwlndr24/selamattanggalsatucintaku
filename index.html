@@ -3,329 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Perjalanan Cinta Kita - Wulan & Ardi">
-<meta name="author" content="Wulan">
-
 <title>Perjalanan Pulang | Wulan & Ardi ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background: #0f0f12; color: white; overflow-x: hidden; }
+section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px 20px; text-align: center; position: relative; }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+/* --- Password Screen --- */
+.password-screen { position: fixed; inset: 0; background: url('images/cover.jpg') center/cover; z-index: 9999; display: flex; justify-content: center; align-items: center; }
+.password-screen::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.85); }
+.password-box { position: relative; z-index: 1; background: #1a1a1a; padding: 40px; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; border: 1px solid #ff4f87; }
+.password-box h2 { margin-bottom: 10px; color: #ff91b5; font-family: 'Playfair Display', serif; font-size: 1.8rem;}
+.password-box p { color: #888; font-size: 0.9rem; }
+.password-box input { width: 100%; padding: 15px; margin-top: 20px; border: 2px solid #333; border-radius: 10px; background: #222; color: white; font-size: 1.2rem; text-align: center; letter-spacing: 3px; }
+.password-box button { margin-top: 15px; width: 100%; padding: 15px; border: none; border-radius: 10px; background: #ff4f87; color: white; font-size: 1.1rem; font-weight: 600; cursor: pointer; }
 
-body{
-font-family:'Poppins', sans-serif;
-background:#0f0f12;
-color:white;
-overflow-x:hidden;
-line-height:1.6;
-}
+/* --- Hero Section --- */
+.hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('images/cover.jpg'); background-size: cover; background-position: center; }
+.hero h1 { font-size: 3.5rem; font-family: 'Playfair Display', serif; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+.hero p { max-width: 600px; font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; }
+.btn { padding: 15px 40px; border: none; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 600; background: linear-gradient(45deg, #ff4f87, #ff9bbd); color: white; text-decoration: none; display: inline-block; transition: 0.3s; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 79, 135, 0.5); }
 
-section{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:40px 20px;
-text-align:center;
-position:relative;
-}
+/* --- Counter --- */
+.counter { background: #17171c; }
+.counter h2 { font-size: 1.8rem; margin-bottom: 15px; }
+.days { font-size: 4rem; font-weight: 700; color: #ff7ca8; }
+.counter p { margin-top: 10px; color: #aaa; }
 
-/* HERO SECTION */
-.hero{
-background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)),
-url("images/cover.jpg");
-background-size:cover;
-background-position:center;
-position:relative;
-}
+/* --- Story --- */
+.story { background: #0a0a0c; }
+.story-card { max-width: 700px; margin: 20px auto; padding: 35px; background: #16161c; border-radius: 20px; text-align: left; border-left: 4px solid #ff4f87; }
+.story-card h3 { margin-bottom: 12px; color: #ff91b5; font-family: 'Playfair Display', serif; font-size: 1.4rem;}
+.story-card p { color: #ccc; line-height: 1.8; }
 
-.hero::before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.3);
-}
+/* --- Gallery Grid --- */
+.gallery { background: #121218; }
+.gallery h2 { font-size: 2rem; margin-bottom: 40px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; width: 100%; max-width: 1400px; }
+.gallery-item { position: relative; overflow: hidden; border-radius: 15px; cursor: pointer; height: 280px; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.gallery-item:hover img { transform: scale(1.1); }
 
-.hero h1, .hero p, .hero .btn{
-position:relative;
-z-index:1;
-}
+/* --- Photobooth --- */
+.photobooth { background: #08080a; }
+.polaroids { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
+.polaroid { background: white; padding: 15px 15px 70px; border-radius: 4px; box-shadow: 0 15px 30px rgba(0,0,0,0.5); transform: rotate(-3deg); transition: 0.3s; cursor: pointer; }
+.polaroid:nth-child(2) { transform: rotate(3deg); }
+.polaroid:hover { transform: rotate(0); }
+.polaroid img { width: 220px; height: 280px; object-fit: cover; }
 
-.hero h1{
-font-size:4rem;
-font-family:'Playfair Display', serif;
-margin-bottom:15px;
-text-shadow:0 2px 10px rgba(0,0,0,0.5);
-}
+/* --- Letter --- */
+.letter { background: #f5f0eb; color: #333; }
+.letter-box { max-width: 750px; background: white; padding: 60px; border-radius: 5px; line-height: 2.2; font-size: 1.15rem; text-align: left; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+.letter-box h2 { text-align: center; color: #ff4f87; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
+.letter-box p { margin-bottom: 20px; }
+.letter-sign { text-align: right; margin-top: 30px; font-style: italic; }
 
-.hero p{
-max-width:700px;
-font-size:1.2rem;
-margin-bottom:30px;
-}
+/* --- Final --- */
+.final { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+.final h2 { font-size: 2rem; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
+.final button { padding: 20px 50px; border: none; border-radius: 50px; font-size: 1.2rem; font-weight: 600; cursor: pointer; background: #fff; color: #ff4f87; transition: 0.3s; }
+.final button:hover { transform: scale(1.05); }
+#result { margin-top: 30px; font-size: 1.8rem; font-weight: 600; color: #ff91b5; }
 
-.btn{
-padding:14px 35px;
-border:none;
-border-radius:50px;
-cursor:pointer;
-font-size:1rem;
-font-weight:600;
-background:#ff4f87;
-color:white;
-transition:transform 0.3s, box-shadow 0.3s;
-text-decoration:none;
-display:inline-block;
-}
+/* --- Lightbox --- */
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; display: none; justify-content: center; align-items: center; }
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 90%; max-height: 90vh; border-radius: 10px; }
+.lightbox-close { position: absolute; top: 30px; right: 30px; color: white; font-size: 3rem; cursor: pointer; }
 
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 20px rgba(255, 79, 135, 0.4);
-}
+/* --- Animations --- */
+.fade { opacity: 0; transform: translateY(30px); transition: 1s; }
+.fade.show { opacity: 1; transform: none; }
 
-/* COUNTER SECTION */
-.counter{
-background:#17171c;
+@media(max-width: 768px) {
+.hero h1 { font-size: 2.5rem; }
+.days { font-size: 3rem; }
+.gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+.gallery-item { height: 180px; }
+.letter-box { padding: 30px; }
+.polaroid img { width: 160px; height: 200px; }
 }
-
-.counter h2{
-font-size:2rem;
-margin-bottom:10px;
-}
-
-.days{
-font-size:5rem;
-font-weight:700;
-color:#ff7ca8;
-line-height:1.2;
-}
-
-/* STORY SECTION */
-.story{
-background:#111;
-}
-
-.story-card{
-max-width:800px;
-margin:20px auto;
-padding:30px;
-background:#1a1a22;
-border-radius:20px;
-text-align:left;
-transition:transform 0.3s;
-}
-
-.story-card:hover{
-transform:translateY(-5px);
-}
-
-.story-card h3{
-margin-bottom:15px;
-color:#ff91b5;
-font-family:'Playfair Display', serif;
-}
-
-.story-card p{
-color:#ddd;
-}
-
-/* GALLERY SECTION */
-.gallery{
-background:#121218;
-}
-
-.gallery h2{
-margin-bottom:20px;
-font-size:2rem;
-}
-
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-width:100%;
-max-width:1200px;
-}
-
-.gallery-grid img{
-width:100%;
-height:320px;
-object-fit:cover;
-border-radius:18px;
-transition:.4s;
-cursor:pointer;
-}
-
-.gallery-grid img:hover{
-transform:scale(1.03);
-opacity:0.9;
-}
-
-/* PHOTOBOOTH SECTION */
-.photobooth{
-background:#0c0c0f;
-}
-
-.polaroids{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-margin-top:40px;
-}
-
-.polaroids img{
-width:280px;
-background:white;
-padding:12px 12px 55px;
-border-radius:4px;
-box-shadow:0 10px 25px rgba(0,0,0,.4);
-transform:rotate(-2deg);
-transition:transform 0.3s;
-}
-
-.polaroids img:nth-child(2){
-transform:rotate(2deg);
-}
-.polaroids img:hover{
-transform:rotate(0) scale(1.05);
-z-index:2;
-}
-
-/* LETTER SECTION */
-.letter{
-background:#f7f0e8;
-color:#333;
-}
-
-.letter-box{
-max-width:800px;
-background:white;
-padding:50px;
-border-radius:25px;
-line-height:2;
-font-size:1.1rem;
-text-align:left;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-}
-
-.letter-box h2{
-text-align:center;
-margin-bottom:30px;
-color:#ff4f87;
-}
-
-/* FINAL SECTION */
-.final{
-background:linear-gradient(135deg,#ff5f95,#ff9bbd);
-color:#fff;
-}
-
-.final button{
-padding:18px 40px;
-border:none;
-border-radius:50px;
-font-size:1.2rem;
-font-weight:600;
-cursor:pointer;
-background:white;
-color:#ff5f95;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-.final button:hover{
-background:#fff5f7;
-}
-
-#result{
-margin-top:30px;
-font-size:1.5rem;
-font-weight:600;
-line-height:1.5;
-}
-
-/* PASSWORD SCREEN */
-.password-screen{
-position:fixed;
-inset:0;
-background:#000;
-z-index:9999;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-padding:20px;
-}
-
-.password-box{
-background:#1a1a1a;
-padding:40px;
-border-radius:20px;
-width:100%;
-max-width:400px;
-text-align:center;
-border:1px solid #333;
-}
-
-.password-box h2{
-margin-bottom:10px;
-color:#ff91b5;
-}
-
-.password-box input{
-width:100%;
-padding:14px;
-margin-top:20px;
-border:none;
-border-radius:10px;
-background:#2a2a2a;
-color:white;
-font-size:1.1rem;
-text-align:center;
-letter-spacing:2px;
-}
-
-.password-box button{
-margin-top:20px;
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-background:#ff4f87;
-color:white;
-font-size:1rem;
-font-weight:600;
-cursor:pointer;
-}
-
-/* UTILITIES */
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:1s ease-out;
-}
-.fade.show{
-opacity:1;
-transform:none;
-}
-
-/* RESPONSIVE */
-@media(max-width: 768px){
-.hero h1{ font-size: 2.8rem; }
-.days{ font-size: 3.5rem; }
-.gallery-grid img{ height: 250px; }
-.letter-box{ padding: 30px 20px; }
-.polaroids img{ width: 220px; padding-bottom: 40px; }
-}
-
 </style>
 </head>
 <body>
@@ -335,12 +95,12 @@ transform:none;
 <div class="password-box">
 <h2>❤️ Untuk Ardi</h2>
 <p>Masukkan tanggal jadian kita</p>
-<input type="password" id="pass" placeholder="Contoh: 01022025">
-<button onclick="unlock()">Masuk</button>
+<input type="password" id="pass" placeholder="DDMMYYYY" maxlength="8">
+<button onclick="unlock()">Buka</button>
 </div>
 </div>
 
-<!-- Background Music -->
+<!-- Audio -->
 <audio id="bgm" loop>
 <source src="music/our-song.mp3" type="audio/mpeg">
 </audio>
@@ -348,22 +108,122 @@ transform:none;
 <!-- Section 1: Hero -->
 <section class="hero">
 <h1>Perjalanan Pulang</h1>
-<p>
-Satu tahun belajar mencintai dengan lebih benar.<br>
-Untuk Ardi, dari Wulan.
-</p>
-<a href="#counter" class="btn">Mulai Perjalanan</a>
+<p>Teruntuk Ardi,<br>Satu tahun belajar mencintai dengan lebih benar.</p>
+<a href="#counter" class="btn" onclick="playMusic()">Mulai Perjalanan ❤️</a>
 </section>
 
 <!-- Section 2: Counter -->
 <section class="counter fade" id="counter">
 <h2>Kita Sudah Bersama Selama</h2>
 <div class="days" id="days"></div>
-<p>dan aku masih memilihmu ❤️</p>
+<p>dan aku masih tetap memilihmu 💕</p>
 </section>
 
 <!-- Section 3: Story -->
 <section class="story fade">
 <div class="story-card">
-<h3>🌱 Awal yang Tidak Pernah Pergi</h3>
-<p>Aku tidak pernah menyangka seseorang yang pernah hadir di masa
+<h3>🌱 Awal yang Tidak Terlupa</h3>
+<p>Aku tidak pernah menyangka seseorang yang pernah hadir di masa SMP akan menjadi bagian paling berarti di masa dewasa ini.</p>
+</div>
+<div class="story-card">
+<h3>⏳ Perpisahan & Pertemuan</h3>
+<p>Kita pernah berjalan ke arah yang berbeda. Tapi rupanya semesta masih punya cerita lain untuk kita berdua.</p>
+</div>
+<div class="story-card">
+<h3>❤️ 1 Februari 2025</h3>
+<p>Hari di mana aku memilihmu. Bukan karena kehabisan pilihan, tapi karena itu adalah keputusan terberat sekaligus termudah yang pernah dibuat.</p>
+</div>
+</section>
+
+<!-- Section 4: Gallery -->
+<section class="gallery fade">
+<h2>📸 Gallery</h2>
+<div class="gallery-grid">
+<!-- Menggunakan nama file: gallery1.jpg, gallery2.jpg, dst -->
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery1.jpg" alt="Foto 1"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery2.jpg" alt="Foto 2"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery3.jpg" alt="Foto 3"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery4.jpg" alt="Foto 4"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery5.jpg" alt="Foto 5"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery6.jpg" alt="Foto 6"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery7.jpg" alt="Foto 7"></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/gallery8.jpg" alt="Foto 8"></div>
+</div>
+</section>
+
+<!-- Section 5: Photobooth -->
+<section class="photobooth fade">
+<h2>🎞️ Photo Booth</h2>
+<div class="polaroids">
+<!-- Menggunakan nama file: photobooth1.jpg, photobooth2.jpg, dst -->
+<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth1.jpg" alt="Photobooth 1"></div>
+<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth2.jpg" alt="Photobooth 2"></div>
+<div class="polaroid" onclick="openLightbox(this)"><img src="images/photobooth3.jpg" alt="Photobooth 3"></div>
+</div>
+</section>
+
+<!-- Section 6: Letter -->
+<section class="letter fade">
+<div class="letter-box">
+<h2>Surat Untukmu 💌</h2>
+<p>Aku tidak tahu seperti apa detail masa depan kita.</p>
+<p>Tapi aku tahu satu hal.</p>
+<p>Jika aku diberi kesempatan untuk memilih lagi,<br>aku tetap akan memilihmu.</p>
+<p>Hari ini.<br>Besok.<br>Dan selamanya selama kita terus growl together.</p>
+<p class="letter-sign">Dengan cinta terbesar ku,<br>Wulan ❤️</p>
+</div>
+</section>
+
+<!-- Section 7: Final -->
+<section class="final fade">
+<h2>✨ Satu Pertanyaan ✨</h2>
+<button onclick="chooseMe()">Klik Jika Kamu Masih Memilih Aku</button>
+<div id="result"></div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<span class="lightbox-close">&times;</span>
+<img id="lightbox-img" src="" alt="Preview">
+</div>
+
+<script>
+// Password
+function unlock(){
+const pass = document.getElementById("pass").value;
+if(pass === "01022025"){
+document.getElementById("lock").style.display = "none";
+} else {
+alert("Salah dong! Coba lagi 😝");
+}
+}
+
+// Music
+function playMusic(){
+document.getElementById("bgm").play().catch(e => console.log("Can't play"));
+}
+
+// Counter
+const days = Math.floor((new Date() - new Date("2025-02-01")) / (1000*60*60*24));
+document.getElementById("days").innerHTML = days + " Hari";
+
+// Final
+function chooseMe(){
+document.getElementById("result").innerHTML = "❤️ AKU PULA! ❤️<br><br>Sekarang dan selamanya.";
+}
+
+// Lightbox
+function openLightbox(el){
+document.getElementById('lightbox-img').src = el.querySelector('img').src;
+document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox(){
+document.getElementById('lightbox').classList.remove('active');
+}
+
+// Animation
+const observer = new IntersectionObserver(e => e.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); }));
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
